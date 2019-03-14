@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author ZhiYong
  * @date 23点04分
  * @desc  volatile 只具备 多线程可见性，并不具备原子性(同步)
- *         atomic 具备原子性（同步）
+ *         atomic 具备原子性（同步）   neety  和 mina
  */
 public class VolatileAtomicThread extends  Thread{
 
