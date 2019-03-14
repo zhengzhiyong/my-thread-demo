@@ -1,5 +1,10 @@
 package com.thread.demo.demo01;
 
+/**
+ * @author zheng
+ * @date 2019年3月14日 13:34:52
+ * @desc 一个对象一把锁
+ */
 public class Thread01 implements Runnable{
     volatile int i = 10;
 
