@@ -7,7 +7,7 @@ package com.thread.demo.demo01;
  */
 public class ThreadRun extends Thread{
     /**
-     * volatile 线程可见
+     * volatile 多线程可见
      */
     private volatile boolean isRunning = true;
     private void setIsRunning(boolean isRunning){
@@ -28,7 +28,7 @@ public class ThreadRun extends Thread{
         threadRun.start();
         Thread.sleep(3000);
         threadRun.setIsRunning(false);
-        Thread.sleep(1000);
-        System.out.println("isRunning:."+threadRun.isRunning);
+        //Thread.sleep(1000);
+        //System.out.println("isRunning:."+threadRun.isRunning);
     }
 }
