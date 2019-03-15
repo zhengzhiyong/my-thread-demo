@@ -18,7 +18,7 @@ public class ThreadRun extends Thread{
     public void run(){
         System.out.println("执行run方法");
         while (isRunning){
-            //System.out.println("............");
+          //  System.out.println("");
         }
         System.out.println("run方法执行结束");
     }
@@ -28,7 +28,7 @@ public class ThreadRun extends Thread{
         threadRun.start();
         Thread.sleep(3000);
         threadRun.setIsRunning(false);
-        //Thread.sleep(1000);
-        //System.out.println("isRunning:."+threadRun.isRunning);
+        Thread.sleep(1000);
+        System.out.println("isRunning:."+threadRun.isRunning);
     }
 }
