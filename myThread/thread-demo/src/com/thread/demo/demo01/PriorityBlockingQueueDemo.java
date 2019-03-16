@@ -66,6 +66,9 @@ public class PriorityBlockingQueueDemo {
 
         for (Iterator iter = queue.iterator(); iter.hasNext();) {
             try {
+                /**
+                 * 排序是在调用take方法的时候才开始排序的，并不是在往队列中添加的时候开始排序的
+                 */
                 System.out.println(queue.take());
             } catch (InterruptedException e) {
                 e.printStackTrace();
