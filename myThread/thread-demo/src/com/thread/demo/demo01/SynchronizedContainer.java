@@ -83,6 +83,10 @@ public class SynchronizedContainer {
         //生产者线程对其的插入操作put必须等待消费者的移除操作take，反过来也一样。
         SynchronousQueue queue = new SynchronousQueue();
         queue.offer("AAAA");
+
+        //只有当有线程调用take方法的时候，才能去调用add方法。
+        //类似于你去火车站买票，当你发出你的需求你要购票需求的时候，售票员才会帮你去查询相关车票信息
+        //queue.add(new Object());
     }
 
     public static void main(String[] args) {
