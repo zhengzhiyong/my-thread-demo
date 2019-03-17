@@ -4,6 +4,7 @@ package com.thread.demo.demo01.future;
  * @author ZhiYong
  * @date 10点58分
  * @desc 模拟future异步处理数据,wait()/notify()/synchronized三者结合处理
+ *        类似于ajax方式
  */
 public class MyFutureDemo {
 
