@@ -1,4 +1,4 @@
-package com.thread.demo.demo01.masterWorker;
+package com.thread.demo.demo01.masterworker;
 /**
  * @author ZhiYong
  * @date 11点37分

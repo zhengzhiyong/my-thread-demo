@@ -8,13 +8,13 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date 23点25分
  * @desc 使用 wait()和notify()来模拟队列，存取和消费数据的一个过程
  */
-public class MyQuen {
+public class MyQueue {
 
     private int minSize =0;
     private int maxSize;
     private AtomicInteger count = new AtomicInteger(0);
     private LinkedList<Object> list = new LinkedList<>();
-    private MyQuen(int size){
+    private MyQueue(int size){
         this.maxSize = size;
     }
 
@@ -54,7 +54,7 @@ public class MyQuen {
         return o;
     }
     public static void main(String[] args) {
-        final MyQuen quen = new MyQuen(10);
+        final MyQueue quen = new MyQueue(10);
         for (int i = 0;i<10;i++){
           quen.put("a_"+i);
         }
