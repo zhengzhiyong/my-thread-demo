@@ -2,7 +2,11 @@ package com.threadPool.demo.executer;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
-
+/**
+ * @author zheng
+ * @date 08点59分
+ * @desc 非阻塞队列线程池demo
+ */
 public class UnBlockingQueueExecutorDemo implements Runnable{
 
     private static AtomicInteger count = new AtomicInteger(0);
@@ -36,11 +40,7 @@ public class UnBlockingQueueExecutorDemo implements Runnable{
         }
         try {
             Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("queue的size："+queue.size());
-        try {
+            System.out.println("queue的size："+queue.size());
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();

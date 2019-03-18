@@ -2,6 +2,11 @@ package com.threadPool.demo.executer;
 
 import java.util.concurrent.*;
 
+/**
+ * @author zheng
+ * @date 08点59分
+ * @desc 阻塞队列线程池demo
+ */
 public class BlockingQueueExecutorDemo {
     class Task implements Runnable{
         private int taskId;
