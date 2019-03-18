@@ -14,7 +14,7 @@ public class ManyConditionDemo {
      *
      * 在jdk1.8之前lock更快一点在1.8之后synchronized 也做了优化，基本差不多。但是lock 比synchronized 更灵活，
      * 应为是针对一把锁而lock ，synchronized 是针对于某一个类
-     *
+     * ReentrantLock()可以传入参数来创建公平锁和非公平锁，公平锁是浪费性能的，非公平比较快。
      */
 
     final Lock lock = new ReentrantLock();
