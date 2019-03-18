@@ -67,6 +67,11 @@ public class CyclicBarrierDemo {
         service.execute(runner1);
         service.execute(runner2);
         service.execute(runner3);
+        /**区别：
+         * submit有返回值，并且submit中传入的参数可以是实现了Callable接口的类；
+         * execute没有返回值，只能传入实现了Runnable接口的类
+         */
+        //service.submit(runner3);
         service.shutdown();
     }
 
