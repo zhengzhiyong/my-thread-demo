@@ -6,6 +6,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @author ZhiYong
  * @date 00点23分
  * @desc 读写锁口诀：读读共享，读写互斥，写写互斥
+ *
+ * 分布式锁需要来地方插件，比如zookeeper，单纯的依赖于Java代码是无法实现的。
  */
 public class ReadWriterLockDemo {
     private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
