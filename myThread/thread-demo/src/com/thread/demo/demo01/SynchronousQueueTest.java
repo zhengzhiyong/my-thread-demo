@@ -8,12 +8,12 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author ZhiYong
  * @date 23点08分
- * @desc 没有实际大小，SynchronousQueue有两个版本的Transferer实现，一种为公平交易类型，一种为非公平交易类型，
+ * @desc  没有实际大小，SynchronousQueue有两个版本的Transferer实现，一种为公平交易类型，一种为非公平交易类型，
  *        公平交易类型的实现类为TransferQueue，它使用队列来作为交易媒介，请求交易的线程总是先尝试跟队列头部（或者尾部）的线程进行交易， 如果失败再将请求的线程添加到队列尾部，
  *        而非公平类型的实现类为TransferStack，它使用一个stack来作为交易媒介，请求交易的线程总是试图与栈顶线程进行交易，失败则添加到栈顶。
  *        所以SynchronousQueue就是使用队列和栈两种数据结构来模拟公平交易和非公平交易的。
  *
- *        生产者线程对其的插入操作put必须等待消费者的移除操作take，反过来也一样。
+ *        生产者线程对其的插入操作put必须等待消费者的移除操作take。
  */
 public class SynchronousQueueTest {
 
