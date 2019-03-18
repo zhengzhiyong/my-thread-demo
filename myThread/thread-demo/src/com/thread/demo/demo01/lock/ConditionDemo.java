@@ -12,11 +12,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ConditionDemo {
     /**
      *
-     * 在jdk1.8之前lock更快一点在1.8之后synchronized 也做了优化，基本差不多。但是lock 比synchronized 更灵活，
-     * 应为是针对一把锁而lock ，synchronized 是针对于某一个类
+     * 在jdk1.8之前lock更快一点在1.8之后synchronized 也做了优化，基本差不多。但是lock 比synchronized 更灵活，而condition则是针对一把锁而lock ，synchronized 是针对于某一个类
      *
      */
-
     final Lock lock = new ReentrantLock();
     Condition condition = lock.newCondition();
     private void method1(){

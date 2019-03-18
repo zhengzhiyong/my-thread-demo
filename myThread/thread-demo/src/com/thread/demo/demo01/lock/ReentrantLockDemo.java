@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReentrantLockDemo {
     /**
      *
-     * 在jdk1.8之前lock更快一点在1.8之后synchronized 也做了优化，基本差不多。但是lock 比synchronized 更灵活，
+     * 在jdk1.8之前lock更快一点在1.8之后synchronized 也做了优化，基本差不多。但是lock 比synchronized 更灵活,一个lock可以创建多个condition，
      * 应为是针对一把锁而lock ，synchronized 是针对于某一个类
      *
      */
