@@ -1,4 +1,4 @@
-package com.thread.demo.demo01;
+package com.thread.demo.demo01.semaphore;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Semaphore;
@@ -54,11 +54,13 @@ public class SemaphoreThread {
                 System.out.println("线程" + b + "启动，进入银行,无位置，去排队等待等待");
             }
             try {
+                //获取许可
                 semaphore.acquire();
                 bank.save(10);
                 System.out.println(b + "账户余额为：" + bank.getAccount());
                 Thread.sleep(1000);
                 System.out.println("线程" + b + "存钱完毕，离开银行");
+                //释放许可
                 semaphore.release();
             } catch (InterruptedException e) {
                 e.printStackTrace();
