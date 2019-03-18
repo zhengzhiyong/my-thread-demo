@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * @author zheng
  * @date 2019年3月15日 08:53:13
- * @desc
+ * @desc countdownlatch 是属于一个线程A等待，其他的线程去发出通知，一个线程A执行
  */
 public class CountDownLatchDemo {
     private static volatile int count ;
