@@ -8,26 +8,25 @@ import java.util.concurrent.CountDownLatch;
  * @desc
  */
 public class CountDownLatchDemo {
-    private volatile int count ;
+    private static volatile int count ;
 
     public static void main(String[] args) {
-        final CountDownLatchDemo countDownLatchDemo = new CountDownLatchDemo();
         final CountDownLatch countDownLatch = new CountDownLatch(1);
 
         Thread t1 =  new Thread(new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < 10; i++) {
-                    countDownLatchDemo.count ++;
+                    count ++;
                     try {
                         Thread.sleep(500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    System.out.println(Thread.currentThread().getName()+"---------------------------------------------count的值目前为:"+countDownLatchDemo.count);
-                    if (countDownLatchDemo.count == 5){
+                    System.out.println(Thread.currentThread().getName()+"---------------------------------------------count的值目前为:"+count);
+                    if (count == 5){
                         countDownLatch.countDown();
-                        System.out.println(Thread.currentThread().getName()+"---------------------------------------------发出请求通知:count="+countDownLatchDemo.count);
+                        System.out.println(Thread.currentThread().getName()+"---------------------------------------------发出请求通知:count="+count);
                     }
                 }
             }
@@ -36,14 +35,14 @@ public class CountDownLatchDemo {
         Thread t2 =  new Thread(new Runnable() {
             @Override
             public void run() {
-                if (countDownLatchDemo.count != 5) {
+                if (count != 5) {
                     try {
                         countDownLatch.await();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-                System.out.println(Thread.currentThread().getName() + "---------------------------------------------接收到通知:count=" + countDownLatchDemo.count);
+                System.out.println(Thread.currentThread().getName() + "---------------------------------------------接收到通知:count=" + count);
                 throw new RuntimeException();
             }
         });
