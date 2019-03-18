@@ -25,6 +25,9 @@ public class CountDownLatchDemo {
                     }
                     System.out.println(Thread.currentThread().getName()+"---------------------------------------------count的值目前为:"+count);
                     if (count == 5){
+                        /**
+                         * 计数减一
+                         */
                         countDownLatch.countDown();
                         System.out.println(Thread.currentThread().getName()+"---------------------------------------------发出请求通知:count="+count);
                     }
@@ -37,6 +40,11 @@ public class CountDownLatchDemo {
             public void run() {
                 if (count != 5) {
                     try {
+                        /**
+                         * 线程阻塞，直到计数为0的时候唤醒；可以响应线程中断退出阻塞
+                         *
+                         * await(） 不是 wait()
+                         */
                         countDownLatch.await();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
