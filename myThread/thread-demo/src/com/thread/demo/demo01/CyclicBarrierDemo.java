@@ -11,6 +11,7 @@ import static java.util.concurrent.Executors.newFixedThreadPool;
  * @author ZhiYong
  * @date 20点29分
  * @desc CyclicBarrier demo
+ * CyclicBarrier 是属于多个线程阻塞等待
  */
 public class CyclicBarrierDemo {
 
