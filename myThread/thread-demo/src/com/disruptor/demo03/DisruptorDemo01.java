@@ -13,9 +13,9 @@ import static java.util.concurrent.Executors.newFixedThreadPool;
 /**
  * @author ZhiYong
  * @date  21点01分
- * @desc eventProcessor 模拟多任务错操作demo02
+ * @desc eventProcessor 模拟多任务错操作demo01
  */
-public class DisruptoerDemo02 {
+public class DisruptorDemo01 {
     public static void main(String[] args) throws InterruptedException {
         final int BUFFER_SIZE=1024;
         final int THREAD_NUM = 8;
@@ -34,11 +34,10 @@ public class DisruptoerDemo02 {
                 ProducerType.SINGLE,
                 new BusySpinWaitStrategy()
         );
-        //handler01/handler02/handler03 顺序执行
-        disruptor
-                .handleEventsWith(new Handler01())
-                .handleEventsWith(new Handler02())
-                .handleEventsWith(new Handler03());
+        //handler01和handler02一起执行，等handler01和handler02执行完毕后再执行handler03
+        EventHandlerGroup handlerGroup = disruptor.handleEventsWith(new Handler01(),new Handler02());
+        handlerGroup.then(new Handler03());
+
         disruptor.start();
 
         CountDownLatch latch = new CountDownLatch(1);

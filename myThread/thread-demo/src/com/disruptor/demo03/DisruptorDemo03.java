@@ -13,7 +13,7 @@ import static java.util.concurrent.Executors.newFixedThreadPool;
  * @date  21点01分
  * @desc eventProcessor 模拟多任务错操作demo03
  */
-public class DisruptoerDemo03 {
+public class DisruptorDemo03 {
     public static void main(String[] args) throws InterruptedException {
         final int BUFFER_SIZE=1024;
         final int THREAD_NUM = 8;
