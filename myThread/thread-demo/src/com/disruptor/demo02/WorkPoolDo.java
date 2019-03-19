@@ -8,12 +8,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.concurrent.Executors.newFixedThreadPool;
-import static java.util.concurrent.Executors.newSingleThreadExecutor;
 
 /**
  * @author ZhiYong
  * @date  21点01分
- * @desc workPool 工作池方式处理
+ * @desc workPool 工作池方式处理  ringbuffer适合处理单一操作的场景，disruptor适合操作复杂的多生产者场景
  */
 public class WorkPoolDo {
     public static void main(String[] args) throws InterruptedException {
