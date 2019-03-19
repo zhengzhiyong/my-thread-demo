@@ -32,6 +32,6 @@ public class LongEventProducerWithTranslator {
     }
 
     public void call(ByteBuffer buffer){
-        ringBuffer.publishEvent(TRANSLATOR, buffer);
+        this.ringBuffer.publishEvent(TRANSLATOR, buffer);
     }
 }
