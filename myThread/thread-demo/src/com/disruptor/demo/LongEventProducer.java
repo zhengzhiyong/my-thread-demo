@@ -39,7 +39,7 @@ public class LongEventProducer {
              * 3.获取要通过事件传递的业务数据
              */
             event.setName(byteBuffer.getLong(0));
-            System.out.println("<><><><><><><><><><><><><><><><>数据"+event.getName()+"被生产<><><><><><><><><><><><><><><><>");
+            System.out.println("LongEventProducer<><><><><><><><><><><><><><><><>数据"+event.getName()+"被生产<><><><><><><><><><><><><><><><>");
         }finally {
             /**
              * 4.发布事件

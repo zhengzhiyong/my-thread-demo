@@ -11,6 +11,6 @@ import com.lmax.disruptor.EventHandler;
 public class LongEventHandler implements EventHandler<LongEvent> {
     @Override
     public void onEvent(LongEvent longEvent, long l, boolean b) throws Exception {
-        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<消费数据："+longEvent.getName()+">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<推送数据："+longEvent.getName()+">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>给消费者");
     }
 }
