@@ -21,6 +21,7 @@ public class LongEventProducerWithTranslator {
                 @Override
                 public void translateTo(LongEvent event, long sequeue, ByteBuffer buffer) {
                     event.setName(buffer.getLong(0));
+                    System.out.println("LongEventProducerWithTranslator<><><><><><><><><><><><><><><><>数据"+event.getName()+"被生产<><><><><><><><><><><><><><><><>");
                 }
             };
 
@@ -30,7 +31,7 @@ public class LongEventProducerWithTranslator {
         this.ringBuffer = ringBuffer;
     }
 
-    public void onData(ByteBuffer buffer){
+    public void call(ByteBuffer buffer){
         ringBuffer.publishEvent(TRANSLATOR, buffer);
     }
 }
