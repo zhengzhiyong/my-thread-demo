@@ -4,10 +4,10 @@ import com.lmax.disruptor.EventTranslatorOneArg;
 import com.lmax.disruptor.RingBuffer;
 
 import java.nio.ByteBuffer;
-
+    
 /**
  * @author zhengzy
- * @data 2019年3月19日 13:25:47
+ * @date 2019年3月19日 13:25:47
  * @desc Disruptor 3.0提供了lambda式的API。这样可以把一些复杂的操作放在Ring Buffer，
  *       所以在Disruptor3.0以后的版本最好使用Event Publisher或者Event Translator来发布事件
  */
