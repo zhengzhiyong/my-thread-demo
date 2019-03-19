@@ -1,4 +1,4 @@
-package com.thread.demo.demo01;
+package com.thread.demo.demo01.volatileatomic;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

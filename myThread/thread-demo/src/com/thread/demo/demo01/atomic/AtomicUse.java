@@ -1,4 +1,4 @@
-package com.thread.demo.demo01;
+package com.thread.demo.demo01.atomic;
 
 import java.util.ArrayList;
 import java.util.List;

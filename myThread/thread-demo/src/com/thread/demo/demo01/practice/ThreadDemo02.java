@@ -1,4 +1,4 @@
-package com.thread.demo.demo01;
+package com.thread.demo.demo01.practice;
 /**
  * @author  zhengzy
  * @date 2019-03-13

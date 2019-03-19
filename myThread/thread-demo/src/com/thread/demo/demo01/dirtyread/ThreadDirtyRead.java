@@ -1,4 +1,4 @@
-package com.thread.demo.demo01;
+package com.thread.demo.demo01.dirtyread;
 
 public class ThreadDirtyRead {
     private String name = "zhangsan";

@@ -1,4 +1,4 @@
-package com.thread.demo.demo01;
+package com.thread.demo.demo01.queue;
 
 import java.util.Iterator;
 import java.util.concurrent.PriorityBlockingQueue;

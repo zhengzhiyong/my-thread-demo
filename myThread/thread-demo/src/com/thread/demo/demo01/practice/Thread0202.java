@@ -1,15 +1,15 @@
-package com.thread.demo.demo01;
+package com.thread.demo.demo01.practice;
 
 /**
  * @author zheng
  * @date 2019年3月14日 13:48:35
  * @desc 静态方法锁定的是类，非静态方法锁定的是对象 demo1
  */
-public class Thread0203 {
+public class Thread0202 {
 
-    private volatile int i;
+    private static int i;
 
-    private synchronized  void printNum(String tag){
+    private static synchronized  void printNum(String tag){
         if ("a".equals(tag)){
             i  = 200;
             System.out.println("tag is a");
@@ -21,8 +21,8 @@ public class Thread0203 {
     }
 
     public static void main(String args[]){
-        final Thread0203 t1 = new Thread0203();
-        final Thread0203 t2 = new Thread0203();
+        final Thread0202 t1 = new Thread0202();
+        final Thread0202 t2 = new Thread0202();
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {

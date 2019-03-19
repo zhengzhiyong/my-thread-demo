@@ -1,4 +1,4 @@
-package com.thread.demo.demo01;
+package com.thread.demo.demo01.exception;
 
 public class ThreadExceptin {
     private static int i = 0;
