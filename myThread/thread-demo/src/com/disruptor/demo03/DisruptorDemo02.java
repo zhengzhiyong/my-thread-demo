@@ -13,7 +13,7 @@ import static java.util.concurrent.Executors.newFixedThreadPool;
 /**
  * @author ZhiYong
  * @date  21点01分
- * @desc eventProcessor 模拟多任务错操作demo02
+ * @desc 模拟多handler操作demo02
  */
 public class DisruptorDemo02 {
     public static void main(String[] args) throws InterruptedException {
