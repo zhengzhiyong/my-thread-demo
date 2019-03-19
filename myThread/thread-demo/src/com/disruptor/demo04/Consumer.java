@@ -1,7 +1,6 @@
 package com.disruptor.demo04;
 
 import com.lmax.disruptor.WorkHandler;
-
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Consumer implements WorkHandler<Order> {

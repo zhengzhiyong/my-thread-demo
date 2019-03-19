@@ -5,7 +5,6 @@ import com.lmax.disruptor.EventFactory;
 import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.dsl.EventHandlerGroup;
 import com.lmax.disruptor.dsl.ProducerType;
-
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 

@@ -1,9 +1,11 @@
 package com.disruptor.demo04;
 
 public class Order {
-    private String id;//ID
+    //ID
+    private String id;
     private String name;
-    private double price;//金额
+    //金额
+    private double price;
 
     public String getId() {
         return id;
