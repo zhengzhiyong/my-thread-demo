@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @author ZhiYong
  * @date 23点35分
- * @desc 重入锁 demo
+ * @desc 重入锁 demo01
  */
 public class ReentrantLockDemo {
     /**

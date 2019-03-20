@@ -1,4 +1,4 @@
-package com.disruptor.demo;
+package com.disruptor.demo01;
 
 import com.lmax.disruptor.EventTranslatorOneArg;
 import com.lmax.disruptor.RingBuffer;
