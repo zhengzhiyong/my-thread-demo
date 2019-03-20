@@ -2,7 +2,14 @@ package com.disruptor.demo04;
 
 import com.lmax.disruptor.WorkHandler;
 import java.util.concurrent.atomic.AtomicInteger;
-
+/**
+ * @author Zhengzy
+ * @param
+ * @date 2019/3/20 10:06
+ * @desc 描述
+ * @return
+ * @exception
+ */
 public class Consumer implements WorkHandler<Order> {
 
     private String customerId;

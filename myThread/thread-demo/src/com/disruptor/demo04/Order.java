@@ -1,5 +1,12 @@
 package com.disruptor.demo04;
-
+/**
+ * @author Zhengzy
+ * @param
+ * @date 2019/3/20 10:06
+ * @desc 描述
+ * @return
+ * @exception
+ */
 public class Order {
     //ID
     private String id;

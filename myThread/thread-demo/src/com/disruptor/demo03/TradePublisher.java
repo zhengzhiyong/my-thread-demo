@@ -5,7 +5,14 @@ import com.lmax.disruptor.dsl.Disruptor;
 
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
-
+/**
+ * @author Zhengzy
+ * @param 
+ * @date 2019/3/20 10:07
+ * @desc 描述
+ * @return 
+ * @exception 
+ */
 public class TradePublisher implements Runnable {
     private CountDownLatch latch;
     private Disruptor<TradeObject> disruptor;

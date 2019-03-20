@@ -7,7 +7,14 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 
 import static java.util.concurrent.Executors.newFixedThreadPool;
-
+/**
+ * @author Zhengzy
+ * @param
+ * @date 2019/3/20 10:06
+ * @desc 描述
+ * @return
+ * @exception
+ */
 public class ProviderConsumerDemo {
 
     public static void main(String[] args) throws InterruptedException {

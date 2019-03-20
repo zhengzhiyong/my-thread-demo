@@ -1,7 +1,14 @@
 package com.disruptor.demo04;
 
 import com.lmax.disruptor.RingBuffer;
-
+/**
+ * @author Zhengzy
+ * @param
+ * @date 2019/3/20 10:06
+ * @desc 描述
+ * @return
+ * @exception
+ */
 public class Provider {
 
     private final RingBuffer<Order> ringBuffer;
