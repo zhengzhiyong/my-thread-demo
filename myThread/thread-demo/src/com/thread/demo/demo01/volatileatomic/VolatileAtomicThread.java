@@ -10,8 +10,13 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class VolatileAtomicThread extends  Thread{
 
-  // private volatile static int count ;
-
+//    private volatile static int count ;
+//    public static void addCount(){
+//        for (int i = 0 ;i <10000;i++){
+//            count ++;
+//        }
+//        System.out.println(count);
+//    }
    private static AtomicInteger count = new AtomicInteger(0);
 
    public static void addCount(){
