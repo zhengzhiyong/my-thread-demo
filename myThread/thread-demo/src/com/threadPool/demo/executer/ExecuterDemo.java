@@ -7,7 +7,24 @@ import static java.util.concurrent.Executors.*;
 /**
  * @author ZhiYong
  * @date 20点10分
- * @desc 线程池相关demo
+ * @desc 线程池相关demo:
+ *
+ * 线程池基于ExecutorService 中ThreadPoolExecutor构造方法来实现的。
+ * 1、首先初次创建一个线程池，会有有个核心线程数corePoolSize，此时会创建corePoolSize个线程在线程池中以供调用。
+ * 2、当需要处理的线程数大于核心线程数的时候，会往workQueue这个队列中去添加任务。
+ * 3、当这个队列被添加满了，会触发一个扩容机制，把核心线程数扩容到最大线程数的数量。创建maximumPoolSize个线程在线程池中以供调用。
+ * 4、当队列已经满了，并且核心线程数会有有个核心线程数corePoolSize都已经达到maximumPoolSize个，此时会触发决绝策略defaultHandler，该接口或方法需要开发人员去实现。
+ *
+ * public ThreadPoolExecutor(int corePoolSize,
+ *                               int maximumPoolSize,
+ *                               long keepAliveTime,
+ *                               TimeUnit unit,
+ *                               BlockingQueue<Runnable> workQueue,
+ *                               ThreadFactory threadFactory) {
+ *         this(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue,
+ *              threadFactory, defaultHandler);
+ *
+ *
  */
 public class ExecuterDemo {
     //核心线程数，指的是线程池初始化的时候创建的线程数。
