@@ -1,5 +1,7 @@
 package com.thread.demo.demo01.atomic;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -42,5 +44,12 @@ public class AtomicUse {
         for (int i = 0; i < 10; i++) {
             list.get(i).start();
         }
+    }
+
+
+    @Test
+    public void test1(){
+        int resutl =   count.getAndAdd(1);
+        System.out.println(resutl);
     }
 }

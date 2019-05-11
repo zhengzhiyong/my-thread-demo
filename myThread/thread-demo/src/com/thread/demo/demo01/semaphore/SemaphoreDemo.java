@@ -1,5 +1,9 @@
 package com.thread.demo.demo01.semaphore;
 
+import com.thread.demo.demo01.future.BankClient1;
+import com.thread.demo.demo01.future.BankClient2;
+import org.junit.Test;
+
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Semaphore;
@@ -14,43 +18,28 @@ import static java.util.concurrent.Executors.newFixedThreadPool;
  */
 public class SemaphoreDemo {
 
-
-    static class BankClient implements Runnable{
-        /**
-         * 柜台编号
-         */
-        private String name;
-
-        /**
-         *
-         */
-        private Semaphore semaphore;
-
-        public BankClient(String name, Semaphore semaphore) {
-            this.name = name;
-            this.semaphore = semaphore;
-        }
-
-        private Random random = new Random();
-        @Override
-        public void run() {
-            try {
-                semaphore.acquire();
-                Thread.sleep(2000);
-                System.out.println("工作人员开始处理["+name+"]开始处理:["+ random.nextInt(100) +"]");
-                semaphore.release();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void main(String[] args) {
+    @Test
+    public void test1(){
         Semaphore semaphore = new Semaphore(3);
         ExecutorService service = newFixedThreadPool(20);
         for (int i = 0 ;i<20;i++){
-            service.submit(new BankClient("用户"+i,semaphore));
+            service.submit(new BankClient1("用户"+i,semaphore));
         }
         service.shutdown();
+    }
+    @Test
+
+    public void test2(){
+        Semaphore semaphore = new Semaphore(3);
+        ExecutorService service = newFixedThreadPool(20);
+        for (int i = 0 ;i<20;i++){
+            service.submit(new BankClient2("用户"+i,semaphore));
+        }
+        service.shutdown();
+
+    }
+
+    public static void main(String[] args) {
+
     }
 }
