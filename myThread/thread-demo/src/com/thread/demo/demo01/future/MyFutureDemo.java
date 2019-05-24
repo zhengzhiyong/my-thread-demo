@@ -9,6 +9,7 @@ package com.thread.demo.demo01.future;
 public class MyFutureDemo {
 
     interface Data{
+        //获取返回结果
         String getResponse();
     }
 
