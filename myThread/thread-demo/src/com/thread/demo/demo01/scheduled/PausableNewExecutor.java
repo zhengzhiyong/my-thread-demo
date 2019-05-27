@@ -1,18 +1,21 @@
 package com.thread.demo.demo01.scheduled;
 
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class PausableNewExecutor extends ScheduledThreadPoolExecutor {
 
-    private Continue cont;
+    private Condition condition;
 
     private ScheduledExecutorService service;
 
     private ThreadPoolExecutor executor;
 
-    public PausableNewExecutor(int corePoolSize, Continue cont ) {
+    private AtomicInteger i = new AtomicInteger(0) ;
+
+    public PausableNewExecutor(int corePoolSize, Condition condition) {
         super(corePoolSize, Executors.defaultThreadFactory());
-        this.cont = cont;
+        this.condition = condition;
         this.service = new ScheduledThreadPoolExecutor(corePoolSize);
         //闯将线程池
         executor = this;
@@ -20,7 +23,7 @@ public class PausableNewExecutor extends ScheduledThreadPoolExecutor {
 
     protected void beforeExecute(Thread t, Runnable r) {
         try {
-            cont.checkIn();
+            condition.checkIn();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -28,21 +31,36 @@ public class PausableNewExecutor extends ScheduledThreadPoolExecutor {
     }
 
     public void start(){
-        service.scheduleWithFixedDelay(new Runnable() {
-           @Override
-           public void run() {
-           }
-        },//需要执行的任务
-        0,//启动后延迟多少时间开始执行第一个任务
-        1,//上一个任务执行结束后，延迟多少时间开始执行下一个任务
-        TimeUnit.SECONDS//时间单位
+        /**
+         * public ScheduledFuture<?> scheduleWithFixedDelay(
+         *       Runnable command, //需要执行的任务
+         *       long initialDelay, //启动后延迟多少时间开始执行第一个任务
+         *       long delay, //上一个任务执行结束后，延迟多少时间开始执行下一个任务
+         *       TimeUnit unit //时间单位
+         *);*/
+        service.scheduleWithFixedDelay(
+            new Runnable() {
+               @Override
+               public void run() {
+                   i.incrementAndGet();
+                   int temp = i.get() ;
+                   if (temp == 5){
+                       condition.pause();
+                       System.out.println("condition.pause();=============================" + temp);
+                   }else{
+                       System.out.println("=============================" + temp);
+                   }
+               }
+            },
+            0,
+            1,
+            TimeUnit.SECONDS
         );
     }
 
     public static void main(String[] args) {
-        PausableNewExecutor  pausableNewExecutor = new PausableNewExecutor(10,new Continue());
+        PausableNewExecutor  pausableNewExecutor = new PausableNewExecutor(10,new Condition());
         pausableNewExecutor.start();
-
         for (int i = 0; i < 100; i++) {
             pausableNewExecutor.execute(new Runnable() {
                 @Override

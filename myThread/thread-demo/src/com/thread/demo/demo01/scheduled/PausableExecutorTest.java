@@ -12,19 +12,19 @@ public class PausableExecutorTest {
         service = new ScheduledThreadPoolExecutor(10);
         //闯将线程池
         executor = new PausableExecutor(10, Executors.defaultThreadFactory());
-        service.scheduleWithFixedDelay(new Runnable() {
-                                           @Override
-                                           public void run() {
-                                               System.out.println("==========================="+executor.getQueue().size());
-                                               if (executor.getQueue().size()>50){
-                                                   executor.pause();
-                                               }
-
-                                           }
-                                       },//需要执行的任务
-                10,//启动后延迟多少时间开始执行第一个任务
-                10,//上一个任务执行结束后，延迟多少时间开始执行下一个任务
-                TimeUnit.SECONDS//时间单位
+        service.scheduleWithFixedDelay(
+            new Runnable() {
+               @Override
+               public void run() {
+                   System.out.println("==========================="+executor.getQueue().size());
+                   if (executor.getQueue().size()>50){
+                       executor.pause();
+                   }
+               }
+            },//需要执行的任务
+            10,//启动后延迟多少时间开始执行第一个任务
+            10,//上一个任务执行结束后，延迟多少时间开始执行下一个任务
+            TimeUnit.SECONDS//时间单位
         );
     }
 

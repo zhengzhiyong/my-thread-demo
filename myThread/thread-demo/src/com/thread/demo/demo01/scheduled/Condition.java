@@ -2,20 +2,21 @@ package com.thread.demo.demo01.scheduled;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Continue {
-    private boolean isPaused;
+public class Condition {
+    public boolean isPaused;
     private ReentrantLock pauseLock = new ReentrantLock();
-    private Condition unpaused = pauseLock.newCondition();
+    private java.util.concurrent.locks.Condition unpaused = pauseLock.newCondition();
 
     public void checkIn() throws InterruptedException {
         if (isPaused) {
             pauseLock.lock();
             try {
-                while (isPaused)
+                while (isPaused){
+                    System.out.println("----------------------");
                     unpaused.await();
+                }
             } finally {
                 pauseLock.unlock();
             }
@@ -94,4 +95,5 @@ public class Continue {
             pauseLock.unlock();
         }
     }
+
 }
